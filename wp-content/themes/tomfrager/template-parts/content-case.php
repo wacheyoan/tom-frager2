@@ -111,6 +111,7 @@
     .case-container{
         height: 329px;
         position: relative;
+        overflow: hidden;
     }
 
 </style>
