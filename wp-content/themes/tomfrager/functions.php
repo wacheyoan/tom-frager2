@@ -140,10 +140,12 @@ add_action( 'widgets_init', 'tomfrager_widgets_init' );
  * Enqueue scripts and styles.
  */
 function tomfrager_scripts() {
-//	wp_enqueue_style( 'tomfrager-style', get_stylesheet_uri(), array(), _S_VERSION );
-//	wp_style_add_data( 'tomfrager-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'tomfrager-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_style_add_data( 'tomfrager-style', 'rtl', 'replace' );
     wp_enqueue_script('jquery');
+    wp_register_style('jqm_css', 'https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css');
     wp_enqueue_script( 'wdm-mm-toggle', get_stylesheet_directory_uri() . '/js/mobile-menu-toggle.js', array('jquery') );
+    wp_enqueue_script( 'products-slider', get_stylesheet_directory_uri() . '/js/products-slider.js', array('jquery') );
     wp_enqueue_script('tomfrager-ajax-navigation',get_template_directory_uri().'/js/ajax-navigation.js',array(),_S_VERSION,true);
 	wp_enqueue_script( 'tomfrager-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

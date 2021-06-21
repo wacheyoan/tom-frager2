@@ -125,6 +125,18 @@ function logos() {
             'post_types' => array('page'),
 
         ));
+
+        acf_register_block_type(array(
+            'name'              => 'shop',
+            'title'             => __('shop'),
+            'description'       => __('Affiche la boutique'),
+            'render_template'   => 'template-parts/content-products.php',
+            'category'          => 'tom-frager',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'boutique'),
+            'post_types' => array('page'),
+
+        ));
     }
 
 }
