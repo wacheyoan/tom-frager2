@@ -28,14 +28,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 body {
   margin: 0; }
+  body #page {
+    margin-bottom: 100px; }
   body * {
     color: var(--black); }
   body p {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 12px; }
-  body a {
-    font-family: 'Raleway', sans-serif; }
   body .menu-toolbar {
     position: fixed;
     bottom: 0;
@@ -47,7 +47,8 @@ body {
     margin: 0;
     background: white;
     box-shadow: 0px -2px 8px rgba(214, 214, 214, 0.25);
-    border-radius: 20px 20px 0 0; }
+    border-radius: 20px 20px 0 0;
+    z-index: 10; }
     body .menu-toolbar li {
       list-style: none;
       width: 33%; }
@@ -96,32 +97,18 @@ body {
       font-size: 16px;
       line-height: 140%;
       text-align: justify; }
-    body .brand-container h2.title {
-      position: relative;
-      text-align: center;
-      font-size: 48px;
-      font-family: 'Amatic SC', cursive;
-      font-style: normal;
-      font-weight: bold;
-      line-height: 140%;
-      z-index: 2; }
     body .brand-container .slash {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%); }
-    body .brand-container .slash {
-      position: absolute;
-      top: 0;
-      transform: translateY(75%);
-      z-index: -1; }
   body .menu-trousse a .item-menu {
-    margin-top: -30px; }
+    margin-top: -25%; }
     body .menu-trousse a .item-menu img {
       background: white;
       border-radius: 50%;
-      padding: 8px 15px 0 15px;
-      box-shadow: 0 -6px 8px rgba(214, 214, 214, 0.25); }
+      padding: 15px 15px 0 15px;
+      box-shadow: 0px -2px 8px rgba(214, 214, 214, 0.25); }
   body .item-menu {
     display: flex;
     flex-direction: column;
@@ -132,6 +119,51 @@ body {
   @media screen and (min-width: 800px) {
     body .logos-container {
       height: 342px; } }
+  @media (max-width: 782px) {
+    body .menu-toggle {
+      display: none !important; } }
+  body h2.title {
+    position: relative;
+    text-align: center;
+    font-size: 48px;
+    font-family: 'Amatic SC', cursive;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 140%;
+    z-index: 2; }
+  body h3.subtitle {
+    text-align: right;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 140%; }
+  body .brand-container,
+  body .description-container,
+  body .images-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative; }
+    body .brand-container .paragraph,
+    body .description-container .paragraph,
+    body .images-container .paragraph {
+      padding: 15px;
+      font-family: 'Raleway', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 140%;
+      text-align: justify; }
+    body .brand-container .slash,
+    body .description-container .slash,
+    body .images-container .slash {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1; }
   body .nav-menu {
     display: flex;
     justify-content: space-between;
@@ -143,73 +175,90 @@ body {
       list-style: none; }
       body .nav-menu li a {
         text-decoration: none; }
-  body .desktop-menu {
+  @media screen and (min-width: 800px) {
+    body .logos-container {
+      height: 342px; } }
+  @media (max-width: 782px) {
+    body .menu-toggle {
+      display: none !important; } }
+  body .separator-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    padding: 0;
-    padding-top: 1%; }
-    body .desktop-menu .logo-horizontal {
-      width: 7%; }
-      body .desktop-menu .logo-horizontal img {
-        width: 100%; }
-    body .desktop-menu li {
-      list-style: none; }
-      body .desktop-menu li a {
-        text-decoration: none;
+    flex-direction: column; }
+    body .separator-container .image-container img {
+      margin-top: 15px; }
+  body .image-container {
+    z-index: 1; }
+    body .image-container .image {
+      position: relative; }
+      body .image-container .image img {
+        filter: brightness(0.7); }
+      body .image-container .image .img-legend {
+        left: 50%;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Raleway', sans-serif;
         font-style: normal;
-        font-weight: 400;
-        display: flex;
-        font-size: 18px;
-        flex-direction: column;
-        align-items: center; }
-        body .desktop-menu li a img {
-          width: 30px; }
-      body .desktop-menu li p {
-        font-size: 18px;
-        font-weight: 400;
-        white-space: nowrap;
-        margin-top: 8px; }
-    body .desktop-menu .trousse-menu a {
-      flex-direction: row; }
-      body .desktop-menu .trousse-menu a img {
-        width: 40px; }
-      body .desktop-menu .trousse-menu a p {
-        margin: auto;
-        margin-left: 3%; }
-
-.menu-toggle {
-  display: none !important; }
-
-.products-container {
-  position: relative;
-  height: 500px; }
-  .products-container .all-products {
-    position: absolute;
+        font-weight: 800;
+        font-size: 34px;
+        line-height: 40px;
+        color: white;
+        text-align: center;
+        margin: 0; }
+  body .instagram-container {
     display: flex;
-    justify-content: space-between; }
-    .products-container .all-products .single-product {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px; }
+    body .instagram-container .instagram-images {
       display: flex;
-      flex-direction: column;
-      background: #FFBB92;
-      border-radius: 15px;
+      justify-content: center;
+      align-items: center;
+      gap: 25px; }
+      body .instagram-container .instagram-images img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover; }
+  body .products-container {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    width: 100%;
+    touch-action: none; }
+    body .products-container .all-products {
+      position: absolute;
+      display: flex;
       width: 293px;
       height: 423px;
       margin: 0 2%;
-      box-shadow: 3.0566px 3.0566px 33.6227px rgba(150, 150, 150, 0.25); }
-      .products-container .all-products .single-product a {
+      box-shadow: 3.0566px 3.0566px 33.6227px rgba(150, 150, 150, 0.25);
+      transition: all 0.5s ease-in-out; }
+      body .products-container .all-products .single-product {
+        display: flex;
+        flex-direction: column;
+        background: #FFBB92;
+        border-radius: 15px;
+        width: 293px;
+        height: 423px;
+        margin: 0 2%;
+        box-shadow: 3.0566px 3.0566px 33.6227px rgba(150, 150, 150, 0.25); }
+      body .products-container .all-products a {
         text-decoration: none;
         height: 100%; }
-        .products-container .all-products .single-product a .img-product {
+        body .products-container .all-products a .img-product {
           height: 95%;
           margin: auto 0;
           display: flex;
           margin-top: -20%; }
-          .products-container .all-products .single-product a .img-product img {
+          body .products-container .all-products a .img-product img {
             width: 210px;
             height: auto;
             object-fit: contain; }
-        .products-container .all-products .single-product a .detail-product {
+        body .products-container .all-products a .detail-product {
           height: 15%;
           background: white;
           border-radius: 0 0 15px 15px;

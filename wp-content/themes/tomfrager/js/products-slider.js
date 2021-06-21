@@ -1,18 +1,17 @@
 var nbrslider = 0;
-$(function(){
-    $( "div.all-products" ).on( "swipeleft", swipeHandler );
 
-    function swipeHandler(){
-        nbrslider = nbrslider -14.5;
-        jQuery('.all-products').css('transform', 'translateX('+nbrslider+'%)');
-    }
+$(document).on("swipeleft","div.all-products", function (e) {
+    swipeHandler(-75)
+});
+$(document).on("swiperight","div.all-products", function (e) {
+    swipeHandler(75)
 });
 
-$(function(){
-    $( "div.all-products" ).on( "swiperight", swipeHandler );
+function swipeHandler(number) {
+    nbrslider = nbrslider + number;
+    jQuery('.all-products').css('transform', 'translateX(' + nbrslider + '%)');
+}
 
-    function swipeHandler( event ){
-        nbrslider = nbrslider +14.5;
-        jQuery('.all-products').css('transform', 'translateX('+nbrslider+'%)');
-    }
-});
+
+
+
