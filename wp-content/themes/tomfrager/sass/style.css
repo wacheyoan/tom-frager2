@@ -36,6 +36,11 @@ body {
     font-size: 12px; }
   body a {
     font-family: 'Raleway', sans-serif; }
+  body h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700; }
   body .menu-toolbar {
     position: fixed;
     bottom: 0;

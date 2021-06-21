@@ -46,6 +46,13 @@ body {
     font-family: 'Raleway', sans-serif;
   }
 
+  h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+  }
+
   //style menu mobile
   .menu-toolbar {
     position: fixed;
@@ -246,6 +253,7 @@ body {
     }
   }
 }
+
 .menu-toggle {
   display: none !important;
 }
