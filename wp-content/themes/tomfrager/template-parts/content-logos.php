@@ -1,4 +1,4 @@
-<main id="primary" class="site-main">
+<div id="logos" class="site-main">
     <?php if( have_rows('logos') ):?>
         <div class="logos-container">
             <?php
@@ -10,5 +10,5 @@
     <?php
     endif;
     ?>
-</main>
+</div>
 
