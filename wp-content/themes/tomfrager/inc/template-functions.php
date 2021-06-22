@@ -12,17 +12,17 @@
  * @return array
  */
 function tomfrager_body_classes( $classes ) {
-	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
-	}
+    // Adds a class of hfeed to non-singular pages.
+    if ( ! is_singular() ) {
+        $classes[] = 'hfeed';
+    }
 
-	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
-	}
+    // Adds a class of no-sidebar when there is no sidebar present.
+    if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+        $classes[] = 'no-sidebar';
+    }
 
-	return $classes;
+    return $classes;
 }
 add_filter( 'body_class', 'tomfrager_body_classes' );
 
@@ -30,9 +30,9 @@ add_filter( 'body_class', 'tomfrager_body_classes' );
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
 function tomfrager_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
-	}
+    if ( is_singular() && pings_open() ) {
+        printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+    }
 }
 add_action( 'wp_head', 'tomfrager_pingback_header' );
 
@@ -137,6 +137,18 @@ function logos() {
             'post_types' => array('page'),
 
         ));
+
+        acf_register_block_type(array(
+            'name'              => 'image-fond',
+            'title'             => __('Images avec fond'),
+            'description'       => __('Créer des images avec fond'),
+            'render_template'   => 'template-parts/content-images-fond.php',
+            'enqueue_style'     => get_template_directory_uri().'/style.css',
+            'category'          => 'tom-frager',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'images-fond'),
+            'post_types' => array('page'),
+        ));
     }
 
 }
@@ -169,6 +181,3 @@ function wpdocs_new_block_category( $categories ) {
     return $categories;
 }
 add_filter( 'block_categories', 'wpdocs_new_block_category' );
-
-
-
