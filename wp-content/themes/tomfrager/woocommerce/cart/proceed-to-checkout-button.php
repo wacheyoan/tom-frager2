@@ -22,6 +22,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="checkout-button button alt wc-forward">
-	<?php esc_html_e( 'Proceed to checkout', 'woocommerce' ); ?>
+<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="btn btn-orange proceed">
+	<?php esc_html_e( 'Passer au paiement', 'woocommerce' ); ?>
 </a>
+
+
+<script>
+
+    $('.proceed').on('click',function (e){
+        e.preventDefault();
+        $("[name='update_cart']").prop('disabled', false);
+        $("[name='update_cart']").trigger("click");
+
+        window.location.href = $(this).attr('href')
+
+    })
+
+</script>

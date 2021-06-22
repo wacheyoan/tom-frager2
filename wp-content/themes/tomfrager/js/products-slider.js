@@ -1,4 +1,5 @@
 var nbrslider = 0;
+$.mobile.autoInitializePage = false;
 
 $(function (){
     $("div.all-products").on("swipeleft", function (e) {
