@@ -13,7 +13,4 @@ $(function (){
         nbrslider = nbrslider + number;
         jQuery('.all-products').css('transform', 'translateX(' + nbrslider + '%)');
     }
-})
-
-
-
+});
