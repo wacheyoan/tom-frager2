@@ -19,9 +19,14 @@ defined( 'ABSPATH' ) || exit;
 
 if ( ! is_ajax() ) {
 	do_action( 'woocommerce_review_order_before_payment' );
+	?>
+    <div><h2 class="title" style="margin-bottom: 25px">Le Paiement</h2></div>
+
+<?php
 }
 ?>
 <div id="payment" class="woocommerce-checkout-payment">
+    <p class="legend">Modes de paiement</p>
 	<?php if ( WC()->cart->needs_payment() ) : ?>
 		<ul class="wc_payment_methods payment_methods methods">
 			<?php
@@ -59,3 +64,51 @@ if ( ! is_ajax() ) {
 if ( ! is_ajax() ) {
 	do_action( 'woocommerce_review_order_after_payment' );
 }
+?>
+
+
+<style>
+
+    #place_order{
+        background-color:#FCAD80 !important;
+        color: black !important;
+        border-radius: 20px !important;
+        font-family: 'Raleway',sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 140%;
+    }
+
+    #payment{
+        background: white !important;
+        display: flex;
+        border: 1px solid;
+        border-radius: 12px !important;
+        flex-direction: column;
+        margin: 5%;
+        position: relative;
+    }
+
+    #mailpoet_woocommerce_checkout_optin_field{
+        display: none;
+    }
+
+    .entry-title{
+        display: none;
+    }
+
+    .payment_box{
+        background: #FCAD80 !important; ;
+        border-radius: 16px !important;
+    }
+
+    .payment_box::before{
+        border: 1em solid #FCAD80 !important;
+        border-right-color: transparent !important;
+        border-left-color: transparent !important;
+        border-top-color: transparent !important;
+    }
+
+
+</style>

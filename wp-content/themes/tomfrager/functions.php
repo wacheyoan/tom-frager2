@@ -149,6 +149,12 @@ function tomfrager_scripts() {
     wp_enqueue_script('tomfrager-ajax-navigation',get_template_directory_uri().'/js/ajax-navigation.js',array(),_S_VERSION,true);
     wp_enqueue_script( 'tomfrager-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+    wp_dequeue_script('wc-checkout');
+    wp_deregister_script('wc-checkout');
+    wp_register_script( 'wc-checkout', get_template_directory_uri(). '/woocommerce/assets/js/checkout.js' , array( 'jquery' ), false, true );
+    wp_enqueue_script('wc-checkout');
+
+
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }

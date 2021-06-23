@@ -9,3 +9,10 @@
         <?php the_field('texte');?>
     </p>
 </div>
+
+<style>
+
+    .description-container{
+        margin-top: 25px;
+    }
+</style>

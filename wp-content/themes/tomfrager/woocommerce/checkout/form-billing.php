@@ -31,7 +31,8 @@ defined( 'ABSPATH' ) || exit;
 
 <!--	--><?php //do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 	<div class="woocommerce-billing-fields__field-wrapper">
-        <p>*champs obligatoires</p>
+        <h2 class="title">Vos informations</h2>
+        <p class="small">*champs obligatoires</p>
         <?php
 		$fields = $checkout->get_checkout_fields( 'billing' );
 
@@ -43,7 +44,6 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
 
-    <button type="button" class="btn btn-orange">Valider mes informations</button>
 </div>
 
 <?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>
@@ -74,18 +74,32 @@ defined( 'ABSPATH' ) || exit;
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
 	</div>
 <?php endif; ?>
+<!--<div class="button-container">-->
+<!--    <button type="button" class="btn btn-orange">Valider mes informations</button>-->
+<!--</div>-->
+
 
 <style>
-    label{
+    p label{
         position: absolute;
         left: 13%;
         top: -25%;
         background: white;
-        padding: 10px 10px 0 10px
+        padding: 10px 10px 0 10px;
+        z-index: 2;
+
     }
-    p.form-row{
+    .woocommerce-billing-fields__field-wrapper p.form-row{
         position: relative;
         width: 90% !important;
+    }
+    .shipping_address p.form-row{
+        position: relative;
+        margin-bottom: 16px;
+    }
+
+    .shipping_address{
+        padding: 5%;
     }
 
     span input{
@@ -99,23 +113,81 @@ defined( 'ABSPATH' ) || exit;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 25px;
+        gap: 16px;
     }
 
-    .select2-selection__rendered,.select2-selection__arrow{
-        position: absolute;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-    }
+    /*.select2-selection__rendered,.select2-selection__arrow{*/
+    /*    position: absolute;*/
+    /*    top: 50% !important;*/
+    /*    transform: translateY(-50%) !important;*/
+    /*}*/
 
-    .select2-selection{
+    select{
         position: relative;
         border-radius: 15px !important;
         border: 1px solid black !important;
         height: 56px !important;
+        background: white;
+        z-index: 1;
     }
 
-    #billing_company_field,#order_comments_field,#ce4wp_checkout_consent_checkbox_field{
+    #billing_company_field,#order_comments_field,#ce4wp_checkout_consent_checkbox_field,#shipping_company,#shipping_company_field{
         display: none;
     }
+
+    .button-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn{
+        border-radius: 50px;
+        padding:  10px 20px 10px 20px;
+        font-family: 'Raleway', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 140%;
+        text-align: center;
+    }
+
+    .btn-orange{
+        background: #FCAD80;
+        outline: none;
+        border: #FCAD80;
+    }
+
+    .woocommerce-shipping-fields{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #ship-to-different-address{
+        display: flex;
+        justify-content: center;
+    }
+
+    .title{
+        font-size: 34px !important;
+        margin: 0;
+    }
+
+    .small{
+        margin-right: auto;
+        margin-left: 5%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #ship-to-different-address label{
+        margin: 0 auto 0 5%;
+        font-family: 'Raleway',sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 140%;
+    }
+
 </style>

@@ -159,7 +159,7 @@ function wpc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'wpc_mime_types');
 
-function ²( $categories ) {
+function wpdocs_new_block_category( $categories ) {
     // Plugin’s block category title and slug.
     $block_category = array( 'title' => esc_html__( 'Tom Frager', 'text-domain' ), 'slug' => 'tom-frager' );
     $category_slugs = wp_list_pluck( $categories, 'slug' );
