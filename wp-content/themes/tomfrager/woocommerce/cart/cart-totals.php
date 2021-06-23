@@ -108,7 +108,7 @@ defined( 'ABSPATH' ) || exit;
 <!---->
 <!--	--><?php //do_action( 'woocommerce_after_cart_totals' ); ?>
     <p>Total</p>
-    <div class="cart-total"><?php wc_cart_totals_order_total_html(); ?></div>
+    <div class="cart-total"><?php wc_cart_totals_subtotal_html(); ?></div>
 
 </div>
 <div class="button-container"><?php do_action( 'woocommerce_proceed_to_checkout' ); ?></div>

@@ -274,7 +274,7 @@ body {
     flex-direction: column;
     .image-container{
       img{
-        margin-top: 15px;
+        margin-top: 25px;
       }
     }
   }
@@ -285,6 +285,7 @@ body {
       position: relative;
       img{
         filter: brightness(0.7);
+        margin-bottom: 25px;
       }
       .img-legend{
         left: 50%;

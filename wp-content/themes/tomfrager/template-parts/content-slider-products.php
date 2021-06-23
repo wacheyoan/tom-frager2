@@ -33,3 +33,9 @@ $wc_query = new WP_Query($params);
         <?php endif; ?>
     </div>
 </div>
+
+<style>
+    .single-product > a > p{
+        display: none;
+    }
+</style>

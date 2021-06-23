@@ -272,7 +272,7 @@ body .separator-container {
 }
 /* line 276, sass/style.scss */
 body .separator-container .image-container img {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 /* line 282, sass/style.scss */
 body .image-container {
@@ -285,8 +285,9 @@ body .image-container .image {
 /* line 286, sass/style.scss */
 body .image-container .image img {
   filter: brightness(0.7);
+  margin-bottom: 25px;
 }
-/* line 289, sass/style.scss */
+/* line 290, sass/style.scss */
 body .image-container .image .img-legend {
   left: 50%;
   position: absolute;
@@ -303,12 +304,12 @@ body .image-container .image .img-legend {
   margin: 0;
 }
 
-/* line 308, sass/style.scss */
+/* line 309, sass/style.scss */
 .menu-toggle {
   display: none !important;
 }
 
-/* line 312, sass/style.scss */
+/* line 313, sass/style.scss */
 .instagram-container {
   display: flex;
   justify-content: center;
@@ -316,21 +317,21 @@ body .image-container .image .img-legend {
   flex-direction: column;
   gap: 25px;
 }
-/* line 318, sass/style.scss */
+/* line 319, sass/style.scss */
 .instagram-container .instagram-images {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 25px;
 }
-/* line 323, sass/style.scss */
+/* line 324, sass/style.scss */
 .instagram-container .instagram-images img {
   width: 150px;
   height: 150px;
   object-fit: cover;
 }
 
-/* line 331, sass/style.scss */
+/* line 332, sass/style.scss */
 .products-container {
   position: relative;
   height: 500px;
@@ -338,7 +339,7 @@ body .image-container .image .img-legend {
   width: 100%;
   touch-action: manipulation;
 }
-/* line 337, sass/style.scss */
+/* line 338, sass/style.scss */
 .products-container .all-products {
   position: absolute;
   display: flex;
@@ -348,7 +349,7 @@ body .image-container .image .img-legend {
   box-shadow: 3.0566px 3.0566px 33.6227px rgba(150, 150, 150, 0.25);
   transition: all 0.5s ease-in-out;
 }
-/* line 345, sass/style.scss */
+/* line 346, sass/style.scss */
 .products-container .all-products .single-product {
   display: flex;
   flex-direction: column;
@@ -359,25 +360,25 @@ body .image-container .image .img-legend {
   margin: 0 2%;
   box-shadow: 3.0566px 3.0566px 33.6227px rgba(150, 150, 150, 0.25);
 }
-/* line 355, sass/style.scss */
+/* line 356, sass/style.scss */
 .products-container .all-products a {
   text-decoration: none;
   height: 100%;
 }
-/* line 358, sass/style.scss */
+/* line 359, sass/style.scss */
 .products-container .all-products a .img-product {
   height: 95%;
   margin: auto 0;
   display: flex;
   margin-top: -20%;
 }
-/* line 363, sass/style.scss */
+/* line 364, sass/style.scss */
 .products-container .all-products a .img-product img {
   width: 210px;
   height: auto;
   object-fit: contain;
 }
-/* line 370, sass/style.scss */
+/* line 371, sass/style.scss */
 .products-container .all-products a .detail-product {
   height: 15%;
   background: white;
@@ -390,11 +391,11 @@ body .image-container .image .img-legend {
 }
 
 @media screen and (min-width: 1175px) {
-  /* line 386, sass/style.scss */
+  /* line 387, sass/style.scss */
   .single-product {
     width: 350px;
   }
-  /* line 388, sass/style.scss */
+  /* line 389, sass/style.scss */
   .single-product .detail-product {
     margin: 4px 0;
   }
