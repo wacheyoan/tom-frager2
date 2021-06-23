@@ -668,9 +668,10 @@ do_action('woocommerce_before_cart'); ?>
 
     function updateIcon(elem, quantity) {
         if (quantity === 1) {
-            $(elem).find('.decrease').replaceWith('<svg width="24" height="24" class="delete"> <image xlink:href="' + home + '/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/></svg>');
-        } else {
-            $(elem).find('.delete').replaceWith('<svg width="24" height="24" class="decrease"> <image xlink:href="' + home + '/wp-content/themes/tomfrager/images/icons/Less-only.svg"  width="24px" height="24px"/></svg>');
+            $(elem).find('.decrease').replaceWith('<svg width="24" height="24" class="delete"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/></svg>');
+        }else{
+            $(elem).find('.delete').replaceWith('<svg width="24" height="24" class="decrease"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Less-only.svg"  width="24px" height="24px"/></svg>');
+
         }
     }
 
