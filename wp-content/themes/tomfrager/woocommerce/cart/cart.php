@@ -501,7 +501,15 @@ do_action('woocommerce_before_cart'); ?>
         position: absolute;
         top: 95%;
         transform: translateY(-100%);
+    }
 
+
+    .unitPrice {
+        font-family: 'Raleway', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 140%;
     }
 
     .unitPrice {
@@ -601,6 +609,7 @@ do_action('woocommerce_before_cart'); ?>
             $(elem).find('.decrease').replaceWith('<svg width="24" height="24" class="delete"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/></svg>');
         }else{
             $(elem).find('.delete').replaceWith('<svg width="24" height="24" class="decrease"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Less-only.svg"  width="24px" height="24px"/></svg>');
+
         }
     }
 
