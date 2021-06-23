@@ -76,7 +76,7 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <div class="article-container">
                     <svg width="32px" height="32px" class="quick_add">
-                        <image xlink:href="http://localhost/tom-frager/wp-content/themes/tomfrager/images/icons/Add.svg"
+                        <image xlink:href="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/Add.svg"
                                width="32px" height="32px"/>
                     </svg>
                     <div class="product-image-container">
@@ -234,7 +234,7 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
         if (!items.includes(article)) {
             items.push(article);
             $(this).replaceWith('<svg width="32px" height="32px" class="quick_add">' +
-                '<image xlink:href="http://localhost/tom-frager/wp-content/themes/tomfrager/images/icons/AddDisabled.svg" width="32px" height="32px"/>' +
+                '<image xlink:href="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/AddDisabled.svg" width="32px" height="32px"/>' +
                 '</svg>');
         }
 
@@ -243,7 +243,7 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
     let urls = [];
     let home = $('#home').data('url')
 
-    $('.quick_add_btn').on('click', function () {
+    $(document).on('click','.quick_add_btn', function () {
         if (items.length === 0) {
             return;
         }
