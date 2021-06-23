@@ -16,12 +16,15 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+
 ?>
+<p class="legend">Commande en cours</p>
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>
 		<tr>
-			<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-			<th class="product-total"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
+			<th class="product-name"><?php esc_html_e( 'Produits', 'woocommerce' ); ?></th>
+			<th class="product-total"><?php esc_html_e( 'Sous-Total', 'woocommerce' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -53,7 +56,7 @@ defined( 'ABSPATH' ) || exit;
 	<tfoot>
 
 		<tr class="cart-subtotal">
-			<th><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
+			<th><?php esc_html_e( 'Sous-Total', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
 
@@ -64,15 +67,6 @@ defined( 'ABSPATH' ) || exit;
 			</tr>
 		<?php endforeach; ?>
 
-		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
-
-			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
-
-			<?php wc_cart_totals_shipping_html(); ?>
-
-			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
-
-		<?php endif; ?>
 
 		<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
 			<tr class="fee">
@@ -108,3 +102,47 @@ defined( 'ABSPATH' ) || exit;
 
 	</tfoot>
 </table>
+
+
+<style>
+
+    #order_review{
+        position: relative;
+    }
+    #order_review table{
+        border: 1px solid black;
+        border-radius: 20px;
+        width: 90%;
+        margin-left: 5%;
+        padding: 7px;
+    }
+
+    #order_review table td{
+        font-family: 'Raleway',sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    #order_review table th{
+        font-family: 'Raleway',sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 140%;
+    }
+
+    #order_review table .product-total,.cart-subtotal td,.order-total td{
+        text-align: center;
+    }
+    .legend{
+        position: absolute;
+        top: 0;
+        transform: translateY(-150%);
+        left: 13%;
+        background: white;
+        padding: 0 10px 0 10px;
+
+    }
+</style>
