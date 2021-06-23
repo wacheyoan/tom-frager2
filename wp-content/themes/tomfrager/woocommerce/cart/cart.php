@@ -99,13 +99,13 @@ do_action('woocommerce_before_cart'); ?>
                                     <?php if ($cart_item['quantity'] === 1) {
                                         ?>
                                         <svg width="24" height="24" class="delete">
-                                            <image xlink:href="http://localhost/tom-frager/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/>
+                                            <image xlink:href="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/>
                                         </svg>
                                         <?php
                                     } else {
                                         ?>
                                         <svg width="24" height="24" class="decrease">
-                                            <image xlink:href="http://localhost/tom-frager/wp-content/themes/tomfrager/images/icons/Less-only.svg" width="24px" height="24px"/>
+                                            <image xlink:href="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/Less-only.svg" width="24px" height="24px"/>
                                         </svg>
                                         <?php
                                     } ?>
@@ -420,6 +420,7 @@ do_action('woocommerce_before_cart'); ?>
 
 <?php do_action('woocommerce_after_cart'); ?>
 
+<div id="home" data-url="<?=get_home_url()?>"></div>
 
 <style>
     td::before {
@@ -500,7 +501,15 @@ do_action('woocommerce_before_cart'); ?>
         position: absolute;
         top: 95%;
         transform: translateY(-100%);
+    }
 
+
+    .unitPrice {
+        font-family: 'Raleway', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 140%;
     }
 
     .unitPrice {
@@ -593,11 +602,14 @@ do_action('woocommerce_before_cart'); ?>
 
     }
 
+    let home = $('#home').data('url');
+
     function updateIcon(elem, quantity) {
         if (quantity === 1) {
-            $(elem).find('.decrease').replaceWith('<svg width="24" height="24" class="delete"> <image xlink:href="http://localhost/tom-frager/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/></svg>');
+            $(elem).find('.decrease').replaceWith('<svg width="24" height="24" class="delete"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/></svg>');
         }else{
-            $(elem).find('.delete').replaceWith('<svg width="24" height="24" class="decrease"> <image xlink:href="http://localhost/tom-frager/wp-content/themes/tomfrager/images/icons/Less-only.svg"  width="24px" height="24px"/></svg>');
+            $(elem).find('.delete').replaceWith('<svg width="24" height="24" class="decrease"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Less-only.svg"  width="24px" height="24px"/></svg>');
+
         }
     }
 
