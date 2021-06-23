@@ -522,7 +522,15 @@ do_action('woocommerce_before_cart'); ?>
         position: absolute;
         top: 95%;
         transform: translateY(-100%);
+    }
 
+
+    .unitPrice {
+        font-family: 'Raleway', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 140%;
     }
 
     .unitPrice {
