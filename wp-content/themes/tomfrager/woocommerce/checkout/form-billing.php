@@ -95,7 +95,7 @@ defined( 'ABSPATH' ) || exit;
     }
     .shipping_address p.form-row{
         position: relative;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
 
     .shipping_address{
@@ -188,6 +188,15 @@ defined( 'ABSPATH' ) || exit;
         font-weight: normal;
         font-size: 14px;
         line-height: 140%;
+    }
+
+    .select2-selection--single{
+        border: 1px solid !important;
+        border-radius: 12px !important;
+        height: 56px !important;
+    }
+    .select2-selection__arrow,.select2-selection__rendered{
+        padding: 15px;
     }
 
 </style>

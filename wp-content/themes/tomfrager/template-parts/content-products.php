@@ -62,13 +62,15 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
               fill="#5DBFC4" fill-opacity="0.7"/>
     </svg>
 </h2>
+<link rel="preload" as="image" href="<?= get_home_url()?>/wp-content/uploads/2021/06/savon-bleu-180x300.png" />
+
 <div id="secondary">
     <?php while ($loop->have_posts()):
         $loop->the_post();
 
         $product = wc_get_product();
         $imageId = $product->get_image_id();
-        $image_url = wp_get_attachment_image_url($imageId, 'full');
+        $image_url = wp_get_attachment_image_url($imageId, 'medium');
         $title = $product->get_title();
         $price = $product->get_price();
         ?>
@@ -80,7 +82,7 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
                                width="32px" height="32px"/>
                     </svg>
                     <div class="product-image-container">
-                        <img src="<?= $image_url ?>" alt="">
+                        <img  src="<?= $image_url ?>" alt="">
                     </div>
                     <div class="info-container">
                         <p><?= $title ?></p>
@@ -146,6 +148,11 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
     .product-image-container {
         position: absolute;
         top: -25px;
+        max-width: 125px;
+    }
+
+    .product-image-container img{
+        width:100%;
     }
 
 
@@ -221,6 +228,14 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
     .active{
         font-weight: 600 !important;
 
+    }
+
+    .slash {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
     }
 
 </style>

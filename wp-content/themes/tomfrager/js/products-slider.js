@@ -1,16 +1,7 @@
-var nbrslider = 0;
-$.mobile.autoInitializePage = false;
+import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
 
-$(function (){
-    $("div.all-products").on("swipeleft", function (e) {
-        swipeHandler(-75)
-    });
-    $("div.all-products").on("swiperight", function (e) {
-        swipeHandler(75)
-    });
+const swiper = new Swiper('.categories-container',{
+    slidesPerView: 2,
+    spaceBetween: 30,
 
-    function swipeHandler(number) {
-        nbrslider = nbrslider + number;
-        jQuery('.all-products').css('transform', 'translateX(' + nbrslider + '%)');
-    }
-});
+})

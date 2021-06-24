@@ -15,7 +15,7 @@ $product = wc_get_product();
     </div>
     <div class="add_cart-container">
         <div class="choices-container">
-            <p>Vous avez besoin :</p>
+            <p class="legend">Vous avez besoin :</p>
             <div class="choices">
                 <label for="item" class="flex-reverse">
                     <input type="radio" id="item" name="recharge" value="false" checked/> <?= $product->get_title() ?>
@@ -245,8 +245,16 @@ $product = wc_get_product();
     <div class="product-description">
         <?= $product->get_description();?>
     </div>
-    <div class="product-short-description">
-        <?= $product->get_short_description();?>
+    <div class="eco-container" style="margin-top: 20px">
+        <div class="eco">
+            <svg width="114" height="116" viewBox="0 0 114 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M12.6779 38.4943C13.7117 37.2677 15.5593 37.1051 16.7942 38.1366C49.6641 65.5595 65.0115 108.264 65.6476 110.063C66.1855 111.582 65.381 113.236 63.8608 113.766C63.538 113.877 63.2106 113.928 62.8878 113.928C61.6857 113.928 60.5537 113.18 60.1327 111.991C59.9783 111.563 44.6543 68.9653 13.0334 42.5832C11.7985 41.5517 11.6348 39.721 12.6779 38.4943ZM113.213 2.07129L113.447 5.12861C113.573 6.71303 116.329 44.2001 104.873 62.9343C93.366 81.7615 79.478 87.5416 72.6861 89.3072C72.9995 92.3413 72.9948 94.2463 72.9901 94.5344C72.9714 96.1328 71.6243 97.234 70.0339 97.4012C68.4201 97.3827 67.129 96.0677 67.1431 94.4647L67.1414 94.2383C67.1005 91.6415 66.1898 67.4239 47.7215 48.2006C32.1309 31.9801 12.9665 29.2155 5.97811 28.7555C5.82842 34.359 5.73955 47.2295 7.64335 57.8651C10.5575 74.0857 18.14 96.6578 50.2755 105.305C51.8331 105.728 52.7499 107.321 52.3289 108.869C51.9781 110.165 50.7947 111.015 49.5083 111.015C49.2557 111.015 48.9985 110.983 48.7412 110.913C9.31795 100.296 3.72816 69.128 1.88984 58.8827C0.431973 50.7567 0.0742208 41.6239 0.0514099 34.982L0.0510864 33.6879C0.0646146 29.0721 0.230833 25.9212 0.247984 25.6145L0.388316 22.9707L3.05458 22.8685C4.12108 22.8221 28.4168 22.2134 49.1014 41.4494C54.6116 32.1567 72.5785 7.40999 110.149 2.47088L113.213 2.07129ZM107.787 8.70168C73.1679 14.5422 57.0908 39.2006 53.3674 45.7799C57.2498 50.0638 60.3698 54.5011 62.8677 58.892C67.0869 51.639 76.8773 36.8541 95.7282 17.8969C96.8649 16.7539 98.7125 16.7492 99.8632 17.869C101.009 18.9981 101.023 20.838 99.8866 21.9764C77.6818 44.3116 68.2751 60.9364 66.0812 65.146C69.1872 72.0041 70.8992 78.43 71.8394 83.5225C77.9063 81.8265 89.7361 76.5157 99.8773 59.9235C108.564 45.7102 108.189 17.9991 107.787 8.70168Z"
+                      fill="#75BA05" fill-opacity="0.1"/>
+            </svg>
+            <p class="eco-number"><?= the_field('gramms') ?> G</p>
+        </div>
+        <p class="eco-paragraph">C’est le poids du plastique évité avec ce produit</p>
     </div>
     <div class="calendar">
         <div class="title-container">
@@ -603,6 +611,8 @@ $product = wc_get_product();
     </div>
 </div>
 
+<div id="home" data-url="<?=get_home_url()?>"></div>
+
 <style>
 /*TODO refactor*/
     .fiche-container {
@@ -614,6 +624,9 @@ $product = wc_get_product();
 
     .add_cart-container {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
 
     .product-container {
@@ -670,6 +683,7 @@ $product = wc_get_product();
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 95%;
     }
 
     input[type="radio"] {
@@ -708,6 +722,7 @@ $product = wc_get_product();
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
+        gap: 9px;
     }
 
     .add{
@@ -834,6 +849,57 @@ $product = wc_get_product();
         background: white;
     }
 
+.eco-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5%;
+    gap: 15px;
+}
+
+.eco {
+    position: relative;
+}
+
+.eco p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Amatic SC', cursive;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 140%;
+    color: #019734;
+    margin: 0;
+    white-space: nowrap;
+}
+.legend{
+    font-family: 'Raleway',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 140%;
+    margin:2;
+}
+.eco-paragraph {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 140%;
+    color: #019734;
+}
+.star-rating::before{
+    color:#CFB13D !important;
+}
+.star-rating{
+    height: 24px !important;
+    line-height: 24px !important;
+    font-size: 24px !important;
+}
+
 </style>
 
 <script>
@@ -842,8 +908,9 @@ $product = wc_get_product();
 
         let id = $(this).data('id');
         let quantity =  $(document).find('.cart-number').text();
+        let home = $('#home').data('url');
 
-       window.location.href = window.location.origin + `/tom-frager/Shop/?add-to-cart=${id}&quantity=${quantity}`;
+       window.location.href = home+`/cart/?add-to-cart=${id}&quantity=${quantity}`;
     });
 
     $('.increase').on('click',function (){
