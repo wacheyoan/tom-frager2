@@ -400,3 +400,12 @@ body .image-container .image .img-legend {
     margin: 4px 0;
   }
 }
+
+.primary-menu-mobile {
+  position: fixed;
+  background: white;
+  z-index: 3;
+  width: 96%;
+  margin: 0;
+  padding: 2% 2%;
+}
