@@ -143,6 +143,7 @@ function tomfrager_scripts() {
     wp_enqueue_style( 'tomfrager-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_style_add_data( 'tomfrager-style', 'rtl', 'replace' );
     wp_enqueue_script( 'wdm-mm-toggle', get_stylesheet_directory_uri() . '/js/mobile-menu-toggle.js', array('jquery') );
+    wp_enqueue_script( 'posts-slider', get_stylesheet_directory_uri() . '/js/posts-slider.js', array('jquery') );
     wp_enqueue_script( 'tomfrager-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

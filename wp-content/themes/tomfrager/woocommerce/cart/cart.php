@@ -442,6 +442,7 @@ do_action('woocommerce_before_cart'); ?>
 
 <?php do_action('woocommerce_after_cart'); ?>
 
+<div id="home" data-url="<?=get_home_url()?>"></div>
 
 <div id="home" data-url="<?= get_home_url() ?>"></div>
 
@@ -524,15 +525,6 @@ do_action('woocommerce_before_cart'); ?>
         position: absolute;
         top: 95%;
         transform: translateY(-100%);
-    }
-
-
-    .unitPrice {
-        font-family: 'Raleway', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 140%;
     }
 
     .unitPrice {
