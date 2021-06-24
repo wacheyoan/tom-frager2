@@ -29,12 +29,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script>
 
-    $('.proceed').on('click',function (e){
+    jQuery(document).on('click','.proceed',function (e){
         e.preventDefault();
-        $("[name='update_cart']").prop('disabled', false);
-        $("[name='update_cart']").trigger("click");
+        jQuery("[name='update_cart']").prop('disabled', false);
+        jQuery("[name='update_cart']").trigger("click");
 
-        window.location.href = $(this).attr('href')
+        window.location.href = jQuery(this).attr('href')
 
     })
 

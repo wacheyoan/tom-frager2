@@ -242,15 +242,15 @@ function custom_field_excerpt() {
 </style>
 
 <script>
-    $('.btn-filtre').on('click',function (){
-        let li = $(this)
-        $.ajax({
+    jQuery('.btn-filtre').on('click',function (){
+        let li = jQuery(this)
+        jQuery.ajax({
             method: "GET",
-            data: {cat:$(this).data('cat')},
+            data: {cat:jQuery(this).data('cat')},
             success:function (response){
-                $('.all-articles').replaceWith($(response).find('.all-articles'));
-                $('.btn-filtre.active').removeClass('active');
-                $(li).addClass('active')
+                jQuery('.all-articles').replaceWith(jQuery(response).find('.all-articles'));
+                jQuery('.btn-filtre.active').removeClass('active');
+                jQuery(li).addClass('active')
             }
         })
     })

@@ -4,8 +4,8 @@
 $params = array('post_type' => 'product');
 $wc_query = new WP_Query($params);
 ?>
-<div class="products-container swiper-container">
-    <div class="all-products swiper-wrapper" id="all-products">
+<div class="products-container swiper-container" >
+    <div class="all-products swiper-wrapper" id="all-products"  >
         <?php if ($wc_query->have_posts()) : ?>
             <?php while ($wc_query->have_posts()) :
                 $wc_query->the_post();
@@ -13,7 +13,7 @@ $wc_query = new WP_Query($params);
                 $product = wc_get_product(get_the_ID());
                 ?>
                 <div class="single-product swiper-slide">
-                    <a href="<?php the_permalink(); ?>">
+                    <a href="<?php the_permalink(); ?>" >
                         <div class="img-product">
                             <?php the_post_thumbnail(); ?>
                         </div>
@@ -37,6 +37,9 @@ $wc_query = new WP_Query($params);
 <style>
     .single-product > a > p{
         display: none;
+    }
+    .entry-content{
+        overflow-x: hidden;
     }
 </style>
 

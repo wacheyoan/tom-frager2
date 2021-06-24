@@ -31,6 +31,8 @@ if ( $is_localhost ):
     define('DB_PASSWORD', '');
     define('DB_HOST', 'localhost');
 
+    define( 'WP_MAX_MEMORY_LIMIT', '512M' );
+
     define( 'WP_DEBUG', true );
 else:
     define('DB_NAME', 'bxqvbomzwalqrsq7qnlr');

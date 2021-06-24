@@ -243,12 +243,13 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
 <script>
 
     let items = [];
-    $(document).on('click', '.quick_add', function (e) {
+
+    jQuery(document).on('click', '.quick_add', function (e) {
         e.preventDefault();
-        let article = $(this).closest('article').attr('id').replace('post-', '');
+        let article = jQuery(this).closest('article').attr('id').replace('post-', '');
         if (!items.includes(article)) {
             items.push(article);
-            $(this).replaceWith('<svg width="32px" height="32px" class="quick_add">' +
+            jQuery(this).replaceWith('<svg width="32px" height="32px" class="quick_add">' +
                 '<image xlink:href="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/AddDisabled.svg" width="32px" height="32px"/>' +
                 '</svg>');
         }
@@ -256,14 +257,14 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
     })
 
     let urls = [];
-    let home = $('#home').data('url')
+    let home = jQuery('#home').data('url')
 
-    $(document).on('click','.quick_add_btn', function () {
+    jQuery(document).on('click','.quick_add_btn', function () {
         if (items.length === 0) {
             return;
         }
 
-        $('.quick_add_btn').text('Ajout en cours');
+        jQuery('.quick_add_btn').text('Ajout en cours');
 
 
         for (let product of items) {
@@ -274,7 +275,7 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
 
     function ajaxRequests(urls) {
         if (urls.length > 0) {
-            $.ajax({
+            jQuery.ajax({
                 method: 'GET',
                 url: urls.pop()
             }).done(function (result) {
@@ -285,15 +286,15 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
         }
     }
 
-    $('.categories-container li').on('click',function (){
-        let li = $(this)
-        $.ajax({
+    jQuery('.categories-container li').on('click',function (){
+        let li = jQuery(this)
+        jQuery.ajax({
             method: "GET",
-            data: {cat:$(this).data('cat')},
+            data: {cat:jQuery(this).data('cat')},
             success:function (response){
-                $('#secondary').replaceWith($(response).find('#secondary'));
-                $('li.active').removeClass('active');
-                $(li).addClass('active')
+                jQuery('#secondary').replaceWith(jQuery(response).find('#secondary'));
+                jQuery('li.active').removeClass('active');
+                jQuery(li).addClass('active')
             }
         })
     })

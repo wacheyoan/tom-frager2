@@ -904,26 +904,26 @@ $product = wc_get_product();
 
 <script>
 
-    $(".add_to_cart_button").on('click',function (){
+    jQuery(".add_to_cart_button").on('click',function (){
 
-        let id = $(this).data('id');
-        let quantity =  $(document).find('.cart-number').text();
-        let home = $('#home').data('url');
+        let id = jQuery(this).data('id');
+        let quantity =  jQuery(document).find('.cart-number').text();
+        let home = jQuery('#home').data('url');
 
        window.location.href = home+`/cart/?add-to-cart=${id}&quantity=${quantity}`;
     });
 
-    $('.increase').on('click',function (){
-        let quantity = $(document).find('.cart-number').text();
+    jQuery('.increase').on('click',function (){
+        let quantity = jQuery(document).find('.cart-number').text();
         quantity = parseInt(quantity) + 1;
-        $(document).find('.cart-number').text(quantity);
+        jQuery(document).find('.cart-number').text(quantity);
     })
 
-    $('.decrease').on('click',function (){
-        let quantity = $(document).find('.cart-number').text();
+    jQuery('.decrease').on('click',function (){
+        let quantity = jQuery(document).find('.cart-number').text();
         if(quantity === "1"){return;}
         quantity = parseInt(quantity) - 1;
-        $(document).find('.cart-number').text(quantity);
+        jQuery(document).find('.cart-number').text(quantity);
     })
 
 </script>

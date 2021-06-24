@@ -605,53 +605,53 @@ do_action('woocommerce_before_cart'); ?>
 
 <script>
 
-    $(document).on('input', '.qty', function () {
-        let quantity = $(this).val();
+    jQuery(document).on('input', '.qty', function () {
+        let quantity = jQuery(this).val();
         if (quantity === "") {
-            $(this).val(0);
+            jQuery(this).val(0);
         }
-        calculSubTotal($(this).closest('.info'));
+        calculSubTotal(jQuery(this).closest('.info'));
     })
 
-    $(document).on('click', '.increase', function () {
-        let quantity = $(this).parent().find('.cart-number input').val();
+    jQuery(document).on('click', '.increase', function () {
+        let quantity = jQuery(this).parent().find('.cart-number input').val();
         quantity = parseInt(quantity) + 1;
-        $(this).parent().find('.cart-number input').val(quantity);
-        calculSubTotal($(this).closest('.info'));
-        updateIcon($(this).parent(), quantity);
+        jQuery(this).parent().find('.cart-number input').val(quantity);
+        calculSubTotal(jQuery(this).closest('.info'));
+        updateIcon(jQuery(this).parent(), quantity);
     })
 
-    $(document).on('click', '.decrease', function () {
-        let quantity = $(this).parent().find('.cart-number input').val();
+    jQuery(document).on('click', '.decrease', function () {
+        let quantity = jQuery(this).parent().find('.cart-number input').val();
         if (quantity === "1") {
             return;
         }
         quantity = parseInt(quantity) - 1;
-        $(this).parent().find('.cart-number input').val(quantity);
-        calculSubTotal($(this).closest('.info'));
-        updateIcon($(this).parent(), quantity);
+        jQuery(this).parent().find('.cart-number input').val(quantity);
+        calculSubTotal(jQuery(this).closest('.info'));
+        updateIcon(jQuery(this).parent(), quantity);
     })
 
-    $(document).on('click', '.delete', function () {
-        $(this).parent().find('.cart-number input').val(0);
-        calculSubTotal($(this).closest('.info'));
-        $("[name='update_cart']").prop('disabled', false);
-        $("[name='update_cart']").trigger("click");
+    jQuery(document).on('click', '.delete', function () {
+        jQuery(this).parent().find('.cart-number input').val(0);
+        calculSubTotal(jQuery(this).closest('.info'));
+        jQuery("[name='update_cart']").prop('disabled', false);
+        jQuery("[name='update_cart']").trigger("click");
     });
 
     function calculSubTotal(element) {
-        let text = $(element).find('.unitPrice').text();
+        let text = jQuery(element).find('.unitPrice').text();
         let part = text.substring(
             text.lastIndexOf(":") + 1,
             text.lastIndexOf("€")
         ).replaceAll(' ', '').replace(',', '.');
 
         let unitPrice = parseFloat(part);
-        let quantity = parseInt($(element).find('.add .cart-number input').val());
+        let quantity = parseInt(jQuery(element).find('.add .cart-number input').val());
 
         let subTotal = parseFloat(unitPrice * quantity).toFixed(2);
 
-        $(element).closest('.product').find('.amount bdi').text(subTotal.replace('.', ',') + " €");
+        jQuery(element).closest('.product').find('.amount bdi').text(subTotal.replace('.', ',') + " €");
         calculPlastic();
         updateTotal();
 
@@ -659,36 +659,36 @@ do_action('woocommerce_before_cart'); ?>
 
     function calculPlastic(){
         let plastic = 0;
-        $('.product').each(function (){
-            plastic += parseFloat($(this).data('plastic')) * parseInt($(this).find('input').val());
+        jQuery('.product').each(function (){
+            plastic += parseFloat(jQuery(this).data('plastic')) * parseInt(jQuery(this).find('input').val());
         })
 
-        $('.eco p').text(plastic + " G")
+        jQuery('.eco p').text(plastic + " G")
     }
 
-    let home = $('#home').data('url');
+    let home = jQuery('#home').data('url');
 
     function updateIcon(elem, quantity) {
         if (quantity === 1) {
-            $(elem).find('.decrease').replaceWith('<svg width="24" height="24" class="delete"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/></svg>');
+            jQuery(elem).find('.decrease').replaceWith('<svg width="24" height="24" class="delete"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Trash.svg"  width="24px" height="24px"/></svg>');
         }else{
-            $(elem).find('.delete').replaceWith('<svg width="24" height="24" class="decrease"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Less-only.svg"  width="24px" height="24px"/></svg>');
+            jQuery(elem).find('.delete').replaceWith('<svg width="24" height="24" class="decrease"> <image xlink:href="'+home+'/wp-content/themes/tomfrager/images/icons/Less-only.svg"  width="24px" height="24px"/></svg>');
 
         }
     }
 
     function updateTotal() {
-        let products = $('.product');
+        let products = jQuery('.product');
 
         let total = 0;
 
-        $(products).each(function () {
-            let subTotal = parseFloat($(this).find('.amount bdi').text());
+        jQuery(products).each(function () {
+            let subTotal = parseFloat(jQuery(this).find('.amount bdi').text());
 
             total = total + subTotal;
         });
 
-        $('.cart-total').find('.amount bdi').text(parseFloat(total).toFixed(2).replace('.', ',') + " €")
+        jQuery('.cart-total').find('.amount bdi').text(parseFloat(total).toFixed(2).replace('.', ',') + " €")
 
     }
 
