@@ -86,7 +86,7 @@ function custom_field_excerpt() {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        width: 90%;
+        width: 94%;
         height: 45px;
     }
 
@@ -180,6 +180,7 @@ function custom_field_excerpt() {
         width: 343px;
         height: 42px;
         outline: none;
+        border: none;
     }
 
     .btn-filtre {
