@@ -149,6 +149,18 @@ function logos() {
             'keywords'          => array( 'images-fond'),
             'post_types' => array('page'),
         ));
+
+        acf_register_block_type(array(
+            'name'              => 'surf',
+            'title'             => __('surf'),
+            'description'       => __('Créer une descritpion surf'),
+            'render_template'   => 'template-parts/content-surf.php',
+            'enqueue_style'     => get_template_directory_uri().'/style.css',
+            'category'          => 'tom-frager',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'surf'),
+            'post_types' => array('page'),
+        ));
     }
 
 }
