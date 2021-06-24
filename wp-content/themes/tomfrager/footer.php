@@ -24,23 +24,23 @@ if ( function_exists('has_nav_menu') && has_nav_menu('mobile-menu') ) {
 }
 ?>
 <footer id="colophon" class="site-footer">
-    <img class="footer-wave" src="../wp-content/themes/tomfrager/images/wave.png" alt="vague"/>
+    <img class="footer-wave" src="<?=get_home_url()?>/wp-content/themes/tomfrager/images/wave.png" alt="vague"/>
     <div class="links">
         <div class="link">
             <a class="page-link" href="">Nos produits</a>
-            <img src="../wp-content/themes/tomfrager/images/icons/arrow.svg"/>
+            <img src="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/arrow.svg"/>
         </div>
         <div class="link">
             <a class="page-link" href="">Notre histoire</a>
-            <img src="../wp-content/themes/tomfrager/images/icons/arrow.svg"/>
+            <img src="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/arrow.svg"/>
         </div>
         <div class="link">
             <a class="page-link" href="">Nos engagements</a>
-            <img src="../wp-content/themes/tomfrager/images/icons/arrow.svg"/>
+            <img src="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/arrow.svg"/>
         </div>
         <div class="link">
             <a class="page-link" href="">Carnet de route</a>
-            <img src="../wp-content/themes/tomfrager/images/icons/arrow.svg"/>
+            <img src="<?=get_home_url()?>/wp-content/themes/tomfrager/images/icons/arrow.svg"/>
         </div>
     </div>
     <div class="mention-juridique">
@@ -49,7 +49,7 @@ if ( function_exists('has_nav_menu') && has_nav_menu('mobile-menu') ) {
         <p>Politique de confidentialité</p>
     </div>
     <div class="logo">
-        <img class="footer-logo" src="../wp-content/themes/tomfrager/images/bleu-bamboo-logo.png" alt="Logo"/>
+        <img class="footer-logo" src="<?=get_home_url()?>/wp-content/themes/tomfrager/images/bleu-bamboo-logo.png" alt="Logo"/>
     </div>
     <!--		<div class="site-info">-->
     <!--			<a href="--><?php //echo esc_url( __( 'https://wordpress.org/', 'tomfrager' ) ); ?><!--">-->

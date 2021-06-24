@@ -1,5 +1,25 @@
 <?php
-$wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1));
+
+$args = array(
+    'post_type'=>'post',
+    'post_status'=>'publish',
+    'posts_per_page'=>-1
+);
+
+$category = $_GET['cat'] ?? 'all';
+
+if($category && $category !== "all"){
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page'=>-1,
+        'post_status'=>'publish',
+        'cat' => $category
+    );
+}
+
+$categories = get_categories();
+
+$wpb_all_query = new WP_Query($args);
 
 // Custom Excerpt function for Advanced Custom Fields
 function custom_field_excerpt() {
@@ -35,12 +55,15 @@ function custom_field_excerpt() {
             <input class="search-bar" type="text"/>
             <img class="icon-search" src="../wp-content/themes/tomfrager/images/icons/Search.svg"/>
         </form>
-        <div class="all-filtre">
-            <button class="btn-filtre">Nouveau</button>
-            <button class="btn-filtre">Musique</button>
-            <button class="btn-filtre">Ecologie</button>
-            <button class="btn-filtre">Huminitaire</button>
-            <button class="btn-filtre">Surf</button>
+        <div class="all-filtre swiper-wrapper">
+            <button class="btn-filtre swiper-slide active" data-cat="all">Nouveau</button>
+            <?php
+            foreach ($categories as $category) {
+                ?>
+                <button class="btn-filtre swiper-slide" data-cat="<?= $category->term_id?>"><?=$category->name?></button>
+                <?php
+            }
+            ?>
         </div>
         <div class="all-articles">
             <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
@@ -95,10 +118,11 @@ function custom_field_excerpt() {
     }
 
     .articles-carnet {
-        background-image: url("../wp-content/themes/tomfrager/images/background/papier-blanc.png");
+        background-image: url("wp-content/themes/tomfrager/images/background/papier-blanc.png");
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
+        overflow :hidden;
     }
     .btn-history {
         display: flex;
@@ -209,4 +233,36 @@ function custom_field_excerpt() {
         position: absolute;
         height : 100px;
     }
+
+    .btn-filtre.active{
+        background: #326867;
+        color:white !important;
+    }
+
 </style>
+
+<script>
+    $('.btn-filtre').on('click',function (){
+        let li = $(this)
+        $.ajax({
+            method: "GET",
+            data: {cat:$(this).data('cat')},
+            success:function (response){
+                $('.all-articles').replaceWith($(response).find('.all-articles'));
+                $('.btn-filtre.active').removeClass('active');
+                $(li).addClass('active')
+            }
+        })
+    })
+
+</script>
+
+<script type="module">
+    import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
+    const swiper = new Swiper('.articles-carnet',{
+        slidesPerView: "auto",
+        spaceBetween: 10,
+        loop:true
+
+    })
+</script>

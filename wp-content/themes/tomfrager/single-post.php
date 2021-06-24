@@ -10,7 +10,7 @@
             </h2>
             <div class="image-container">
                 <img class="img-frager" src="<?php the_field('image');?>"/>
-                <img class="background-img" src="http://localhost:8888/tom-frager/wp-content/themes/tomfrager/images/background/background-orange.png">
+                <img class="background-img" src="<?=get_home_url()?>/wp-content/themes/tomfrager/images/background/background-orange.png">
             </div>
             <p class="paragraph"><?php the_field('texte');?></p>
             <img src="<?php the_field('image_plein_ecran');?>"/>
@@ -57,7 +57,7 @@
         position: relative;
     }
     .article-detail {
-        background-image: url("http://localhost:8888/tom-frager/wp-content/themes/tomfrager/images/background/papier-blanc.png");
+        background-image: url("<?=get_home_url()?>/wp-content/themes/tomfrager/images/background/papier-blanc.png");
         background-size: cover;
         background-repeat: no-repeat;
     }
