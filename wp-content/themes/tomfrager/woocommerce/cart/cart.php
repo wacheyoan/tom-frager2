@@ -18,7 +18,6 @@
 defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_cart'); ?>
-<link rel="preload" as="image" href="<?= get_home_url()?>/wp-content/uploads/2021/06/Brosse-a-dent.png" />
 
 <h2 class="title">Mon panier
     <svg width="201" height="34" viewBox="0 0 201 34" fill="#5DBFC4" xmlns="http://www.w3.org/2000/svg" class="slash">

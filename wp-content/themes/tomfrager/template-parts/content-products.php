@@ -62,7 +62,6 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
               fill="#5DBFC4" fill-opacity="0.7"/>
     </svg>
 </h2>
-<link rel="preload" as="image" href="<?= get_home_url()?>/wp-content/uploads/2021/06/savon-bleu-180x300.png" />
 
 <div id="secondary">
     <?php while ($loop->have_posts()):
