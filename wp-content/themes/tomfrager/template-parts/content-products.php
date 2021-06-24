@@ -148,6 +148,10 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
         top: -25px;
     }
 
+    .product-image-container img{
+        max-width: 125px;
+    }
+
 
     #secondary article {
         background: #FFBB92;
@@ -221,6 +225,14 @@ $categories = get_terms(['taxonomy' => 'product_cat']);
     .active{
         font-weight: 600 !important;
 
+    }
+
+    .slash {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
     }
 
 </style>

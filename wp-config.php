@@ -20,6 +20,8 @@
  * @package WordPress
  */
 
+define('WP_CACHE', true);
+define( 'WPCACHEHOME', 'C:\xampp\htdocs\tom-frager2\wp-content\plugins\wp-super-cache/' );
 $is_localhost = ($_SERVER['REMOTE_ADDR'] == "127.0.0.1" or $_SERVER['REMOTE_ADDR'] == "::1" or $_SERVER['REMOTE_ADDR'] == "localhost");
 
 if ( $is_localhost ):

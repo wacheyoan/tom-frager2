@@ -611,6 +611,8 @@ $product = wc_get_product();
     </div>
 </div>
 
+<div id="home" data-url="<?=get_home_url()?>"></div>
+
 <style>
 /*TODO refactor*/
     .fiche-container {
@@ -906,8 +908,9 @@ $product = wc_get_product();
 
         let id = $(this).data('id');
         let quantity =  $(document).find('.cart-number').text();
+        let home = $('#home').data('url');
 
-       window.location.href = window.location.origin + `/tom-frager/Shop/?add-to-cart=${id}&quantity=${quantity}`;
+       window.location.href = home+`/cart/?add-to-cart=${id}&quantity=${quantity}`;
     });
 
     $('.increase').on('click',function (){
