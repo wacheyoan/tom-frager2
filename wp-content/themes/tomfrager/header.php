@@ -16,7 +16,9 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        const $ = jQuery;
+    </script>
 </head>
 
 <body <?php body_class(); ?>>

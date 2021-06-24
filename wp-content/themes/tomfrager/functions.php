@@ -142,7 +142,6 @@ add_action( 'widgets_init', 'tomfrager_widgets_init' );
 function tomfrager_scripts() {
     wp_enqueue_style( 'tomfrager-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_style_add_data( 'tomfrager-style', 'rtl', 'replace' );
-    wp_enqueue_script('jquery');
     wp_enqueue_script( 'wdm-mm-toggle', get_stylesheet_directory_uri() . '/js/mobile-menu-toggle.js', array('jquery') );
     wp_enqueue_script( 'tomfrager-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
