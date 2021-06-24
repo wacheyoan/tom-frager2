@@ -4,15 +4,15 @@
 $params = array('post_type' => 'product');
 $wc_query = new WP_Query($params);
 ?>
-<div class="products-container">
-    <div class="all-products" id="all-products">
+<div class="products-container swiper-container">
+    <div class="all-products swiper-wrapper" id="all-products">
         <?php if ($wc_query->have_posts()) : ?>
             <?php while ($wc_query->have_posts()) :
                 $wc_query->the_post();
                 $product = new WC_Product(get_the_ID());
                 $product = wc_get_product(get_the_ID());
                 ?>
-                <div class="single-product">
+                <div class="single-product swiper-slide">
                     <a href="<?php the_permalink(); ?>">
                         <div class="img-product">
                             <?php the_post_thumbnail(); ?>
@@ -39,3 +39,12 @@ $wc_query = new WP_Query($params);
         display: none;
     }
 </style>
+
+<script type="module">
+    import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
+
+    const swiper = new Swiper('.products-container',{
+        slidesPerView: "auto",
+        loop:true
+    })
+</script>

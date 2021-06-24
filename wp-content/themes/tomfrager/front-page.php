@@ -52,3 +52,7 @@ get_template_part('template-parts/content-slider-products');
 <?php
 get_sidebar();
 get_footer();
+
+?>
+
+
